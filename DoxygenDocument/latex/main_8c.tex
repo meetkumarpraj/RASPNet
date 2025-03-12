@@ -1,0 +1,94 @@
+\hypertarget{main_8c}{}\doxysection{Source\+Code/main.c File Reference}
+\label{main_8c}\index{SourceCode/main.c@{SourceCode/main.c}}
+
+
+This file contains \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()}} from which program execution will start.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}UART/\+UART.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}IRQ/\+ISR.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Layer2/data\+Link\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Layer3/network\+Layer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a2a5a5b8aaeac3f3b12ded5a4cbbfff0e}{get\+Inputs\+From\+User}} ()
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_af3f726014b044194def151079f1f2d89}{address}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()}} from which program execution will start. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a2a5a5b8aaeac3f3b12ded5a4cbbfff0e}\label{main_8c_a2a5a5b8aaeac3f3b12ded5a4cbbfff0e}} 
+\index{main.c@{main.c}!getInputsFromUser@{getInputsFromUser}}
+\index{getInputsFromUser@{getInputsFromUser}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{getInputsFromUser()}{getInputsFromUser()}}
+{\footnotesize\ttfamily void get\+Inputs\+From\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for receiving inputs data from user using MINICOM console\+:
+\begin{DoxyItemize}
+\item B to set user input as destination address.
+\item D to set user input as payload.
+\item P to send message frame.
+\item R to reset all variables. 
+\end{DoxyItemize}$<$ This variable is used to store user input data as string.
+
+$<$ This variable is used for showing debug messages on MINi\+COM console.
+
+$<$ This function call is used for setting user input data as destination address of message frame.
+
+$<$ This variable is used for storing actual size of payload data.
+
+$<$ This variable is used for storing size of user input data.
+
+$<$ This function call is used to start the transmission of message frame.
+
+$<$ This function call is used to reset all variables of Layer 1, 2 and 3.\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This is a main function of this project. $<$ Setting DDRB for transmitting clock signal.
+
+$<$ Setting DDRD for receiving clock signal.
+
+$<$ This function call is used for initialize UART.
+
+$<$ This function call is used for initialize interrupts.
+
+$<$ This function call is used for enabling interrupts.
+
+$<$ This function call is used for receiving inputs data from user using MINICOM console.
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_af3f726014b044194def151079f1f2d89}\label{main_8c_af3f726014b044194def151079f1f2d89}} 
+\index{main.c@{main.c}!address@{address}}
+\index{address@{address}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily uint8\+\_\+t address}
+
+This variable contains source or destination address which was received from the MINICOM console. \mbox{\Hypertarget{main_8c_a18f141cb2726073503afb9f1d6c85efb}\label{main_8c_a18f141cb2726073503afb9f1d6c85efb}} 
+\index{main.c@{main.c}!payload@{payload}}
+\index{payload@{payload}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily char$\ast$ payload}
+
+This variable contains payload which was received from the MINICOM console. 

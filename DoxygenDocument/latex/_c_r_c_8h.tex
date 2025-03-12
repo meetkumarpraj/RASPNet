@@ -1,0 +1,27 @@
+\hypertarget{_c_r_c_8h}{}\doxysection{Source\+Code/\+CRC/\+CRC.h File Reference}
+\label{_c_r_c_8h}\index{SourceCode/CRC/CRC.h@{SourceCode/CRC/CRC.h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_c_r_c_8h_aa9809e55e97d2b90d51072cd63f9f2cc}{crc32}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}}, int payload\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_c_r_c_8h_aa9809e55e97d2b90d51072cd63f9f2cc}\label{_c_r_c_8h_aa9809e55e97d2b90d51072cd63f9f2cc}} 
+\index{CRC.h@{CRC.h}!crc32@{crc32}}
+\index{crc32@{crc32}!CRC.h@{CRC.h}}
+\doxysubsubsection{\texorpdfstring{crc32()}{crc32()}}
+{\footnotesize\ttfamily uint32\+\_\+t crc32 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload,  }\item[{int}]{payload\+Size }\end{DoxyParamCaption})}
+
+This function is used for calculating 32 bit CRC of payload. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String for which CRC will be calculated \\
+\hline
+{\em payload\+Size} & Size of payload character Array/\+String. \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for indexing byte in payload
+
+$<$ This variable is used to store calculated CRC value

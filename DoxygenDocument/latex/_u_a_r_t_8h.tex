@@ -1,0 +1,62 @@
+\hypertarget{_u_a_r_t_8h}{}\doxysection{Source\+Code/\+UART/\+UART.h File Reference}
+\label{_u_a_r_t_8h}\index{SourceCode/UART/UART.h@{SourceCode/UART/UART.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8h_a52324117efdddb08bf0078d965a0f865}{init\+UART}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8h_a2e569b26b88c9c2c96ae4f1bbef4b083}{send\+Char\+To\+UART}} (char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8h_a9166c1c7239341f4b92baf73a63f1a5d}{send\+String\+To\+UART}} (char $\ast$str)
+\item 
+char \mbox{\hyperlink{_u_a_r_t_8h_a286dcdfc4bee1b7d0b12a13d715390d4}{get\+Char\+From\+UART}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{_u_a_r_t_8h_a6307b0942115eac612f0aa3896529570}{get\+String\+From\+UART}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8h_a286dcdfc4bee1b7d0b12a13d715390d4}\label{_u_a_r_t_8h_a286dcdfc4bee1b7d0b12a13d715390d4}} 
+\index{UART.h@{UART.h}!getCharFromUART@{getCharFromUART}}
+\index{getCharFromUART@{getCharFromUART}!UART.h@{UART.h}}
+\doxysubsubsection{\texorpdfstring{getCharFromUART()}{getCharFromUART()}}
+{\footnotesize\ttfamily char get\+Char\+From\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for receiving character from the MINICOM console. $<$ This variable is used for storing character input by user from MINICOM console.\mbox{\Hypertarget{_u_a_r_t_8h_a6307b0942115eac612f0aa3896529570}\label{_u_a_r_t_8h_a6307b0942115eac612f0aa3896529570}} 
+\index{UART.h@{UART.h}!getStringFromUART@{getStringFromUART}}
+\index{getStringFromUART@{getStringFromUART}!UART.h@{UART.h}}
+\doxysubsubsection{\texorpdfstring{getStringFromUART()}{getStringFromUART()}}
+{\footnotesize\ttfamily char$\ast$ get\+String\+From\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for receiving character array/string from the MINICOM console. $<$ This variable is used for storing character array/\+String input by user from MINICOM console.
+
+$<$ This variable is used for counting character array/\+String input by user from MINICOM console.\mbox{\Hypertarget{_u_a_r_t_8h_a52324117efdddb08bf0078d965a0f865}\label{_u_a_r_t_8h_a52324117efdddb08bf0078d965a0f865}} 
+\index{UART.h@{UART.h}!initUART@{initUART}}
+\index{initUART@{initUART}!UART.h@{UART.h}}
+\doxysubsubsection{\texorpdfstring{initUART()}{initUART()}}
+{\footnotesize\ttfamily void init\+UART (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is used for UART initialization. $<$ 8-\/bit data
+
+$<$ Enable RX and TX\mbox{\Hypertarget{_u_a_r_t_8h_a2e569b26b88c9c2c96ae4f1bbef4b083}\label{_u_a_r_t_8h_a2e569b26b88c9c2c96ae4f1bbef4b083}} 
+\index{UART.h@{UART.h}!sendCharToUART@{sendCharToUART}}
+\index{sendCharToUART@{sendCharToUART}!UART.h@{UART.h}}
+\doxysubsubsection{\texorpdfstring{sendCharToUART()}{sendCharToUART()}}
+{\footnotesize\ttfamily void send\+Char\+To\+UART (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+This function is used for transmitting character to the MINICOM console. 
+\begin{DoxyParams}{Parameters}
+{\em data} & Character to transmit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_a_r_t_8h_a9166c1c7239341f4b92baf73a63f1a5d}\label{_u_a_r_t_8h_a9166c1c7239341f4b92baf73a63f1a5d}} 
+\index{UART.h@{UART.h}!sendStringToUART@{sendStringToUART}}
+\index{sendStringToUART@{sendStringToUART}!UART.h@{UART.h}}
+\doxysubsubsection{\texorpdfstring{sendStringToUART()}{sendStringToUART()}}
+{\footnotesize\ttfamily void send\+String\+To\+UART (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+This function is used for transmitting character array/string to the MINICOM console. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$str} & Character Array/\+String to transmit \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,51 @@
+\hypertarget{_c_r_c_8c}{}\doxysection{Source\+Code/\+CRC/\+CRC.c File Reference}
+\label{_c_r_c_8c}\index{SourceCode/CRC/CRC.c@{SourceCode/CRC/CRC.c}}
+
+
+This file contains implementation for calculating 32 bit CRC.  
+
+
+{\ttfamily \#include \char`\"{}CRC.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_c_r_c_8c_aa9809e55e97d2b90d51072cd63f9f2cc}{crc32}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}}, int payload\+Size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_c_r_c_8c_aa8136550d24f5231541dbe9c8b4da160}{poly\+\_\+32}} = 0b00000100110000010001110110110111
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains implementation for calculating 32 bit CRC. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_c_r_c_8c_aa9809e55e97d2b90d51072cd63f9f2cc}\label{_c_r_c_8c_aa9809e55e97d2b90d51072cd63f9f2cc}} 
+\index{CRC.c@{CRC.c}!crc32@{crc32}}
+\index{crc32@{crc32}!CRC.c@{CRC.c}}
+\doxysubsubsection{\texorpdfstring{crc32()}{crc32()}}
+{\footnotesize\ttfamily uint32\+\_\+t crc32 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload,  }\item[{int}]{payload\+Size }\end{DoxyParamCaption})}
+
+This function is used for calculating 32 bit CRC of payload. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String for which CRC will be calculated \\
+\hline
+{\em payload\+Size} & Size of payload character Array/\+String. \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for indexing byte in payload
+
+$<$ This variable is used to store calculated CRC value
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_c_r_c_8c_aa8136550d24f5231541dbe9c8b4da160}\label{_c_r_c_8c_aa8136550d24f5231541dbe9c8b4da160}} 
+\index{CRC.c@{CRC.c}!poly\_32@{poly\_32}}
+\index{poly\_32@{poly\_32}!CRC.c@{CRC.c}}
+\doxysubsubsection{\texorpdfstring{poly\_32}{poly\_32}}
+{\footnotesize\ttfamily uint32\+\_\+t poly\+\_\+32 = 0b00000100110000010001110110110111}
+
+This variable is used for storing polynomial value to calculate 32 bit CRC of payload. 

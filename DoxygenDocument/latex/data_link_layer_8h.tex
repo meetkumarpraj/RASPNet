@@ -1,0 +1,84 @@
+\hypertarget{data_link_layer_8h}{}\doxysection{Source\+Code/\+Layer2/data\+Link\+Layer.h File Reference}
+\label{data_link_layer_8h}\index{SourceCode/Layer2/dataLinkLayer.h@{SourceCode/Layer2/dataLinkLayer.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_ac6cb48261b2055e553b6efbafed4197b}{reset\+All}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_abf3ba818427e238103997088987cc85b}{init\+Buffers}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_ab599b02f4c74b89201f431d237b7b809}{check\+Preamble\+Value}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_ac3564b3a43f25e4196de33d5a40354e2}{validate\+Received\+CRC}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_a0df4f167527b73e7e263dfb2128dd947}{forward\+Frame}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_a46f87c88fc64ce89336a696310967121}{send\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8h_ac876d43babba92d551e8d6d56cd0c023}{receive\+Buffer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{data_link_layer_8h_ab599b02f4c74b89201f431d237b7b809}\label{data_link_layer_8h_ab599b02f4c74b89201f431d237b7b809}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!checkPreambleValue@{checkPreambleValue}}
+\index{checkPreambleValue@{checkPreambleValue}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{checkPreambleValue()}{checkPreambleValue()}}
+{\footnotesize\ttfamily void check\+Preamble\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will validate that preamble value is received or not. \mbox{\Hypertarget{data_link_layer_8h_a0df4f167527b73e7e263dfb2128dd947}\label{data_link_layer_8h_a0df4f167527b73e7e263dfb2128dd947}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!forwardFrame@{forwardFrame}}
+\index{forwardFrame@{forwardFrame}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{forwardFrame()}{forwardFrame()}}
+{\footnotesize\ttfamily void forward\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will forward message frame in ring. \mbox{\Hypertarget{data_link_layer_8h_abf3ba818427e238103997088987cc85b}\label{data_link_layer_8h_abf3ba818427e238103997088987cc85b}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!initBuffers@{initBuffers}}
+\index{initBuffers@{initBuffers}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{initBuffers()}{initBuffers()}}
+{\footnotesize\ttfamily void init\+Buffers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function will start the transmission of message frame. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String to transmit. \\
+\hline
+\end{DoxyParams}
+$<$ This function call is used for initializing message frame for transmitting.\mbox{\Hypertarget{data_link_layer_8h_ac876d43babba92d551e8d6d56cd0c023}\label{data_link_layer_8h_ac876d43babba92d551e8d6d56cd0c023}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!receiveBuffer@{receiveBuffer}}
+\index{receiveBuffer@{receiveBuffer}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{receiveBuffer()}{receiveBuffer()}}
+{\footnotesize\ttfamily void receive\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will receive message frame from ring. $<$ This function call is used to check if preamble value is received or not.
+
+$<$ This function call is used to check type of received message and to identify it will forward in ring or not.
+
+$<$ This function call will validate CRC which is received in message frame.
+
+$<$ This function call will forward message frame in ring.\mbox{\Hypertarget{data_link_layer_8h_ac6cb48261b2055e553b6efbafed4197b}\label{data_link_layer_8h_ac6cb48261b2055e553b6efbafed4197b}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!resetAll@{resetAll}}
+\index{resetAll@{resetAll}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{resetAll()}{resetAll()}}
+{\footnotesize\ttfamily void reset\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for resetting all variables of Layer 1, 2 and 3. \mbox{\Hypertarget{data_link_layer_8h_a46f87c88fc64ce89336a696310967121}\label{data_link_layer_8h_a46f87c88fc64ce89336a696310967121}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!sendBuffer@{sendBuffer}}
+\index{sendBuffer@{sendBuffer}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{sendBuffer()}{sendBuffer()}}
+{\footnotesize\ttfamily void send\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will transmit message frame in ring. $<$ This variable is used to point bit from current byte which is currently in transmission.\mbox{\Hypertarget{data_link_layer_8h_ac3564b3a43f25e4196de33d5a40354e2}\label{data_link_layer_8h_ac3564b3a43f25e4196de33d5a40354e2}} 
+\index{dataLinkLayer.h@{dataLinkLayer.h}!validateReceivedCRC@{validateReceivedCRC}}
+\index{validateReceivedCRC@{validateReceivedCRC}!dataLinkLayer.h@{dataLinkLayer.h}}
+\doxysubsubsection{\texorpdfstring{validateReceivedCRC()}{validateReceivedCRC()}}
+{\footnotesize\ttfamily void validate\+Received\+CRC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will validate CRC which is received in message frame. $<$ This variable is used for storing length of payload from received message.
+
+$<$ This variable is will store payload from received message.
+
+$<$ This function call is used to initializing uint\+\_\+8$\ast$ crc\+Buffer\+Payload from received payload.

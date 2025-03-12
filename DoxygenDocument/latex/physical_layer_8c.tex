@@ -1,0 +1,91 @@
+\hypertarget{physical_layer_8c}{}\doxysection{Source\+Code/\+Layer1/physical\+Layer.c File Reference}
+\label{physical_layer_8c}\index{SourceCode/Layer1/physicalLayer.c@{SourceCode/Layer1/physicalLayer.c}}
+
+
+This file contains implementation for Layer1 of RASPNet Protocol.  
+
+
+{\ttfamily \#include \char`\"{}physical\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+CRC/\+CRC.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+UART/\+UART.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Layer3/network\+Layer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{physical_layer_8c_af067148dcb49fa3a17e092078d377db0}{init\+CRCBuffer}} (int size, uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{physical_layer_8c_af43ae2ac91a1bae1193b2f4366e7a710}{init\+Send\+Buffer\+Frame}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}{preamble}} = 0b01111110
+\item 
+int \mbox{\hyperlink{physical_layer_8c_a932c18a19f9cc166470f8b682d0e91d7}{identification}} = 0
+\item 
+int \mbox{\hyperlink{physical_layer_8c_adf916204820072417ed73a32de1cefcf}{flag}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains implementation for Layer1 of RASPNet Protocol. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{physical_layer_8c_af067148dcb49fa3a17e092078d377db0}\label{physical_layer_8c_af067148dcb49fa3a17e092078d377db0}} 
+\index{physicalLayer.c@{physicalLayer.c}!initCRCBuffer@{initCRCBuffer}}
+\index{initCRCBuffer@{initCRCBuffer}!physicalLayer.c@{physicalLayer.c}}
+\doxysubsubsection{\texorpdfstring{initCRCBuffer()}{initCRCBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ init\+CRCBuffer (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function is used for initializing uint\+\_\+8$\ast$ buffer from calculated uint32\+\_\+t CRC of payload. 
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of payload character Array/\+String. \\
+\hline
+{\em payload} & Character Array/\+String for which CRC will be calculated \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for storing 32 bit CRC in uint8\+\_\+t$\ast$ type.
+
+$<$ This variable is used for storing calculated 32 bit CRC of payload.\mbox{\Hypertarget{physical_layer_8c_af43ae2ac91a1bae1193b2f4366e7a710}\label{physical_layer_8c_af43ae2ac91a1bae1193b2f4366e7a710}} 
+\index{physicalLayer.c@{physicalLayer.c}!initSendBufferFrame@{initSendBufferFrame}}
+\index{initSendBufferFrame@{initSendBufferFrame}!physicalLayer.c@{physicalLayer.c}}
+\doxysubsubsection{\texorpdfstring{initSendBufferFrame()}{initSendBufferFrame()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ init\+Send\+Buffer\+Frame (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function is used for initializing message frame for transmitting. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String to transmit \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for storing length of payload message.
+
+$<$ This variable is used for storing address of destination node.
+
+$<$ This variable is used for storing address of source (Own Address) node.
+
+$<$ This variable is used for storing message frame for transmitting.
+
+$<$ This function call is used to initializing uint\+\_\+8$\ast$ crc\+Buffer\+Payload from payload to transmit.
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{physical_layer_8c_adf916204820072417ed73a32de1cefcf}\label{physical_layer_8c_adf916204820072417ed73a32de1cefcf}} 
+\index{physicalLayer.c@{physicalLayer.c}!flag@{flag}}
+\index{flag@{flag}!physicalLayer.c@{physicalLayer.c}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily int flag = 0}
+
+This variable is used for storing flag that will use in implementation of Layer4 . \mbox{\Hypertarget{physical_layer_8c_a932c18a19f9cc166470f8b682d0e91d7}\label{physical_layer_8c_a932c18a19f9cc166470f8b682d0e91d7}} 
+\index{physicalLayer.c@{physicalLayer.c}!identification@{identification}}
+\index{identification@{identification}!physicalLayer.c@{physicalLayer.c}}
+\doxysubsubsection{\texorpdfstring{identification}{identification}}
+{\footnotesize\ttfamily int identification = 0}
+
+This variable is used for storing identification that will use in implementation of Layer4 . \mbox{\Hypertarget{physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}\label{physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}} 
+\index{physicalLayer.c@{physicalLayer.c}!preamble@{preamble}}
+\index{preamble@{preamble}!physicalLayer.c@{physicalLayer.c}}
+\doxysubsubsection{\texorpdfstring{preamble}{preamble}}
+{\footnotesize\ttfamily uint8\+\_\+t preamble = 0b01111110}
+
+This variable is used for storing static preamble value. 

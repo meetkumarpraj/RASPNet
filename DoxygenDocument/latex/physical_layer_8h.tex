@@ -1,0 +1,51 @@
+\hypertarget{physical_layer_8h}{}\doxysection{Source\+Code/\+Layer1/physical\+Layer.h File Reference}
+\label{physical_layer_8h}\index{SourceCode/Layer1/physicalLayer.h@{SourceCode/Layer1/physicalLayer.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{physical_layer_8h_af067148dcb49fa3a17e092078d377db0}{init\+CRCBuffer}} (int size, uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{physical_layer_8h_af43ae2ac91a1bae1193b2f4366e7a710}{init\+Send\+Buffer\+Frame}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{physical_layer_8h_af067148dcb49fa3a17e092078d377db0}\label{physical_layer_8h_af067148dcb49fa3a17e092078d377db0}} 
+\index{physicalLayer.h@{physicalLayer.h}!initCRCBuffer@{initCRCBuffer}}
+\index{initCRCBuffer@{initCRCBuffer}!physicalLayer.h@{physicalLayer.h}}
+\doxysubsubsection{\texorpdfstring{initCRCBuffer()}{initCRCBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ init\+CRCBuffer (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function is used for initializing uint\+\_\+8$\ast$ buffer from calculated uint32\+\_\+t CRC of payload. 
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of payload character Array/\+String. \\
+\hline
+{\em payload} & Character Array/\+String for which CRC will be calculated \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for storing 32 bit CRC in uint8\+\_\+t$\ast$ type.
+
+$<$ This variable is used for storing calculated 32 bit CRC of payload.\mbox{\Hypertarget{physical_layer_8h_af43ae2ac91a1bae1193b2f4366e7a710}\label{physical_layer_8h_af43ae2ac91a1bae1193b2f4366e7a710}} 
+\index{physicalLayer.h@{physicalLayer.h}!initSendBufferFrame@{initSendBufferFrame}}
+\index{initSendBufferFrame@{initSendBufferFrame}!physicalLayer.h@{physicalLayer.h}}
+\doxysubsubsection{\texorpdfstring{initSendBufferFrame()}{initSendBufferFrame()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ init\+Send\+Buffer\+Frame (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function is used for initializing message frame for transmitting. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String to transmit \\
+\hline
+\end{DoxyParams}
+$<$ This variable is used for storing length of payload message.
+
+$<$ This variable is used for storing address of destination node.
+
+$<$ This variable is used for storing address of source (Own Address) node.
+
+$<$ This variable is used for storing message frame for transmitting.
+
+$<$ This function call is used to initializing uint\+\_\+8$\ast$ crc\+Buffer\+Payload from payload to transmit.

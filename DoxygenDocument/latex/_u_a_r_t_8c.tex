@@ -1,0 +1,97 @@
+\hypertarget{_u_a_r_t_8c}{}\doxysection{Source\+Code/\+UART/\+UART.c File Reference}
+\label{_u_a_r_t_8c}\index{SourceCode/UART/UART.c@{SourceCode/UART/UART.c}}
+
+
+This file contains UART handling methods.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/setbaud.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}~9600
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t_8c_a6cbe0c9e92826a80149f453e7788692e}{BAUD\+\_\+\+PRESCALLER}}~(((F\+\_\+\+CPU/(\mbox{\hyperlink{_u_a_r_t_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}$\ast$16UL)))-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a52324117efdddb08bf0078d965a0f865}{init\+UART}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a2e569b26b88c9c2c96ae4f1bbef4b083}{send\+Char\+To\+UART}} (char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t_8c_a9166c1c7239341f4b92baf73a63f1a5d}{send\+String\+To\+UART}} (char $\ast$str)
+\item 
+char \mbox{\hyperlink{_u_a_r_t_8c_a286dcdfc4bee1b7d0b12a13d715390d4}{get\+Char\+From\+UART}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{_u_a_r_t_8c_a6307b0942115eac612f0aa3896529570}{get\+String\+From\+UART}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains UART handling methods. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8c_a62634036639f88eece6fbf226b45f84b}\label{_u_a_r_t_8c_a62634036639f88eece6fbf226b45f84b}} 
+\index{UART.c@{UART.c}!BAUD@{BAUD}}
+\index{BAUD@{BAUD}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{BAUD}{BAUD}}
+{\footnotesize\ttfamily \#define BAUD~9600}
+
+\mbox{\Hypertarget{_u_a_r_t_8c_a6cbe0c9e92826a80149f453e7788692e}\label{_u_a_r_t_8c_a6cbe0c9e92826a80149f453e7788692e}} 
+\index{UART.c@{UART.c}!BAUD\_PRESCALLER@{BAUD\_PRESCALLER}}
+\index{BAUD\_PRESCALLER@{BAUD\_PRESCALLER}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{BAUD\_PRESCALLER}{BAUD\_PRESCALLER}}
+{\footnotesize\ttfamily \#define BAUD\+\_\+\+PRESCALLER~(((F\+\_\+\+CPU/(\mbox{\hyperlink{_u_a_r_t_8c_a62634036639f88eece6fbf226b45f84b}{BAUD}}$\ast$16UL)))-\/1)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8c_a286dcdfc4bee1b7d0b12a13d715390d4}\label{_u_a_r_t_8c_a286dcdfc4bee1b7d0b12a13d715390d4}} 
+\index{UART.c@{UART.c}!getCharFromUART@{getCharFromUART}}
+\index{getCharFromUART@{getCharFromUART}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{getCharFromUART()}{getCharFromUART()}}
+{\footnotesize\ttfamily char get\+Char\+From\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for receiving character from the MINICOM console. $<$ This variable is used for storing character input by user from MINICOM console.\mbox{\Hypertarget{_u_a_r_t_8c_a6307b0942115eac612f0aa3896529570}\label{_u_a_r_t_8c_a6307b0942115eac612f0aa3896529570}} 
+\index{UART.c@{UART.c}!getStringFromUART@{getStringFromUART}}
+\index{getStringFromUART@{getStringFromUART}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{getStringFromUART()}{getStringFromUART()}}
+{\footnotesize\ttfamily char$\ast$ get\+String\+From\+UART (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for receiving character array/string from the MINICOM console. $<$ This variable is used for storing character array/\+String input by user from MINICOM console.
+
+$<$ This variable is used for counting character array/\+String input by user from MINICOM console.\mbox{\Hypertarget{_u_a_r_t_8c_a52324117efdddb08bf0078d965a0f865}\label{_u_a_r_t_8c_a52324117efdddb08bf0078d965a0f865}} 
+\index{UART.c@{UART.c}!initUART@{initUART}}
+\index{initUART@{initUART}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{initUART()}{initUART()}}
+{\footnotesize\ttfamily void init\+UART (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is used for UART initialization. $<$ 8-\/bit data
+
+$<$ Enable RX and TX\mbox{\Hypertarget{_u_a_r_t_8c_a2e569b26b88c9c2c96ae4f1bbef4b083}\label{_u_a_r_t_8c_a2e569b26b88c9c2c96ae4f1bbef4b083}} 
+\index{UART.c@{UART.c}!sendCharToUART@{sendCharToUART}}
+\index{sendCharToUART@{sendCharToUART}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{sendCharToUART()}{sendCharToUART()}}
+{\footnotesize\ttfamily void send\+Char\+To\+UART (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+This function is used for transmitting character to the MINICOM console. 
+\begin{DoxyParams}{Parameters}
+{\em data} & Character to transmit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_a_r_t_8c_a9166c1c7239341f4b92baf73a63f1a5d}\label{_u_a_r_t_8c_a9166c1c7239341f4b92baf73a63f1a5d}} 
+\index{UART.c@{UART.c}!sendStringToUART@{sendStringToUART}}
+\index{sendStringToUART@{sendStringToUART}!UART.c@{UART.c}}
+\doxysubsubsection{\texorpdfstring{sendStringToUART()}{sendStringToUART()}}
+{\footnotesize\ttfamily void send\+String\+To\+UART (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+This function is used for transmitting character array/string to the MINICOM console. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$str} & Character Array/\+String to transmit \\
+\hline
+\end{DoxyParams}

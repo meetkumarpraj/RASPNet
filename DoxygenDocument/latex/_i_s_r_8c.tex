@@ -1,0 +1,87 @@
+\hypertarget{_i_s_r_8c}{}\doxysection{Source\+Code/\+IRQ/\+ISR.c File Reference}
+\label{_i_s_r_8c}\index{SourceCode/IRQ/ISR.c@{SourceCode/IRQ/ISR.c}}
+
+
+This file contains Interrupt Service Routine handling methods.  
+
+
+{\ttfamily \#include \char`\"{}ISR.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Layer2/data\+Link\+Layer.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_i_s_r_8c_ac16a222c648fdce7e5eb4f7e6cdb4d9d}{delay}}~0.\+060
+\item 
+\#define \mbox{\hyperlink{_i_s_r_8c_a9229b565d05a768dbbdcca97f3664283}{OCR\+\_\+\+VALUE}}~(\mbox{\hyperlink{_i_s_r_8c_ac16a222c648fdce7e5eb4f7e6cdb4d9d}{delay}}$\ast$(F\+\_\+\+CPU/1024))-\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_i_s_r_8c_a2da51923137ca640e1d86332433811f5}{init\+Interrupt}} ()
+\item 
+\mbox{\hyperlink{_i_s_r_8c_ad39420cdd896dd12c68e36313139d0a5}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
+\item 
+\mbox{\hyperlink{_i_s_r_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}{ISR}} (PCINT2\+\_\+vect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_i_s_r_8c_a2e859defe1766343865b47705cab97b0}{phase\+Shifter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains Interrupt Service Routine handling methods. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_i_s_r_8c_ac16a222c648fdce7e5eb4f7e6cdb4d9d}\label{_i_s_r_8c_ac16a222c648fdce7e5eb4f7e6cdb4d9d}} 
+\index{ISR.c@{ISR.c}!delay@{delay}}
+\index{delay@{delay}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{delay}{delay}}
+{\footnotesize\ttfamily \#define delay~0.\+060}
+
+\mbox{\Hypertarget{_i_s_r_8c_a9229b565d05a768dbbdcca97f3664283}\label{_i_s_r_8c_a9229b565d05a768dbbdcca97f3664283}} 
+\index{ISR.c@{ISR.c}!OCR\_VALUE@{OCR\_VALUE}}
+\index{OCR\_VALUE@{OCR\_VALUE}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{OCR\_VALUE}{OCR\_VALUE}}
+{\footnotesize\ttfamily \#define OCR\+\_\+\+VALUE~(\mbox{\hyperlink{_i_s_r_8c_ac16a222c648fdce7e5eb4f7e6cdb4d9d}{delay}}$\ast$(F\+\_\+\+CPU/1024))-\/1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_i_s_r_8c_a2da51923137ca640e1d86332433811f5}\label{_i_s_r_8c_a2da51923137ca640e1d86332433811f5}} 
+\index{ISR.c@{ISR.c}!initInterrupt@{initInterrupt}}
+\index{initInterrupt@{initInterrupt}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{initInterrupt()}{initInterrupt()}}
+{\footnotesize\ttfamily void init\+Interrupt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function initialized clock-\/signal and pin-\/change Interrupt. $<$ Calculated Time frequency with delay of 1 second.
+
+$<$ CTC Mode on OCR1A.
+
+$<$ Interrupt on compare match.
+
+$<$ prescaler of 1024.\mbox{\Hypertarget{_i_s_r_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}\label{_i_s_r_8c_a9c4665742c6b6eb1f0bb9dde41f7cba3}} 
+\index{ISR.c@{ISR.c}!ISR@{ISR}}
+\index{ISR@{ISR}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{PCINT2\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+Interrupt Service Routine for the pin-\/change interrupt which will receive data at every clock cycle. $<$ This function call is used to receive message frame from network.\mbox{\Hypertarget{_i_s_r_8c_ad39420cdd896dd12c68e36313139d0a5}\label{_i_s_r_8c_ad39420cdd896dd12c68e36313139d0a5}} 
+\index{ISR.c@{ISR.c}!ISR@{ISR}}
+\index{ISR@{ISR}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+Interrupt Service Routine for the clock-\/signal which toggle PORTB in every clock cycle. $<$ This function call is used to transmit message frame from network.
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_i_s_r_8c_a2e859defe1766343865b47705cab97b0}\label{_i_s_r_8c_a2e859defe1766343865b47705cab97b0}} 
+\index{ISR.c@{ISR.c}!phaseShifter@{phaseShifter}}
+\index{phaseShifter@{phaseShifter}!ISR.c@{ISR.c}}
+\doxysubsubsection{\texorpdfstring{phaseShifter}{phaseShifter}}
+{\footnotesize\ttfamily int phase\+Shifter = 0}
+
+This variable is used for implementing phase shifter. 

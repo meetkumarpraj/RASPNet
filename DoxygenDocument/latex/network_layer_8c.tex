@@ -1,0 +1,106 @@
+\hypertarget{network_layer_8c}{}\doxysection{Source\+Code/\+Layer3/network\+Layer.c File Reference}
+\label{network_layer_8c}\index{SourceCode/Layer3/networkLayer.c@{SourceCode/Layer3/networkLayer.c}}
+
+
+This file contains implementation for Layer3 of RASPNet Protocol.  
+
+
+{\ttfamily \#include \char`\"{}network\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+UART/\+UART.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{network_layer_8c_abed92f54ad1165d84e3f42e11ec8b285}{set\+Destination\+Address}} (uint8\+\_\+t \mbox{\hyperlink{main_8c_af3f726014b044194def151079f1f2d89}{address}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{network_layer_8c_a153fc14e814c441804f95ffdc5cbbd58}{get\+Destination\+Address}} ()
+\item 
+void \mbox{\hyperlink{network_layer_8c_acf04a04f91c56efe7119da3a5106f202}{set\+Own\+Address}} (uint8\+\_\+t \mbox{\hyperlink{main_8c_af3f726014b044194def151079f1f2d89}{address}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{network_layer_8c_a7976724d16721d38baf5efde223cca35}{get\+Own\+Address}} ()
+\item 
+int \mbox{\hyperlink{network_layer_8c_afa51718c90a93b5a5d1e4c5d7019981c}{check\+Received\+Frame}} (uint8\+\_\+t destination, uint8\+\_\+t source)
+\item 
+int \mbox{\hyperlink{network_layer_8c_a70f8db807ac005268d36c223a77cdd9a}{get\+Perform\+Crc\+Validation}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{network_layer_8c_a9df72626457da911e8703cb52109e9ba}{perform\+Crc\+Validation}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{network_layer_8c_a9243533871ae0a6842426255ca729241}{own\+Address}} = 0x0D
+\item 
+uint8\+\_\+t \mbox{\hyperlink{network_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}{destination\+Address}} = 0x0A
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains implementation for Layer3 of RASPNet Protocol. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{network_layer_8c_afa51718c90a93b5a5d1e4c5d7019981c}\label{network_layer_8c_afa51718c90a93b5a5d1e4c5d7019981c}} 
+\index{networkLayer.c@{networkLayer.c}!checkReceivedFrame@{checkReceivedFrame}}
+\index{checkReceivedFrame@{checkReceivedFrame}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{checkReceivedFrame()}{checkReceivedFrame()}}
+{\footnotesize\ttfamily int check\+Received\+Frame (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{destination,  }\item[{uint8\+\_\+t}]{source }\end{DoxyParamCaption})}
+
+This function will validate received frame weather its an broadcast message or its an self message or just need to forward in ring. 
+\begin{DoxyParams}{Parameters}
+{\em destination} & address of receiving node. \\
+\hline
+{\em source} & address of transmitting node. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{network_layer_8c_a153fc14e814c441804f95ffdc5cbbd58}\label{network_layer_8c_a153fc14e814c441804f95ffdc5cbbd58}} 
+\index{networkLayer.c@{networkLayer.c}!getDestinationAddress@{getDestinationAddress}}
+\index{getDestinationAddress@{getDestinationAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{getDestinationAddress()}{getDestinationAddress()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+Destination\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will return saved destination node address. \mbox{\Hypertarget{network_layer_8c_a7976724d16721d38baf5efde223cca35}\label{network_layer_8c_a7976724d16721d38baf5efde223cca35}} 
+\index{networkLayer.c@{networkLayer.c}!getOwnAddress@{getOwnAddress}}
+\index{getOwnAddress@{getOwnAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{getOwnAddress()}{getOwnAddress()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+Own\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will return saved current node address. \mbox{\Hypertarget{network_layer_8c_a70f8db807ac005268d36c223a77cdd9a}\label{network_layer_8c_a70f8db807ac005268d36c223a77cdd9a}} 
+\index{networkLayer.c@{networkLayer.c}!getPerformCrcValidation@{getPerformCrcValidation}}
+\index{getPerformCrcValidation@{getPerformCrcValidation}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{getPerformCrcValidation()}{getPerformCrcValidation()}}
+{\footnotesize\ttfamily int get\+Perform\+Crc\+Validation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will return saved result of validation. \mbox{\Hypertarget{network_layer_8c_abed92f54ad1165d84e3f42e11ec8b285}\label{network_layer_8c_abed92f54ad1165d84e3f42e11ec8b285}} 
+\index{networkLayer.c@{networkLayer.c}!setDestinationAddress@{setDestinationAddress}}
+\index{setDestinationAddress@{setDestinationAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{setDestinationAddress()}{setDestinationAddress()}}
+{\footnotesize\ttfamily void set\+Destination\+Address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+This function will set destination node address. \mbox{\Hypertarget{network_layer_8c_acf04a04f91c56efe7119da3a5106f202}\label{network_layer_8c_acf04a04f91c56efe7119da3a5106f202}} 
+\index{networkLayer.c@{networkLayer.c}!setOwnAddress@{setOwnAddress}}
+\index{setOwnAddress@{setOwnAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{setOwnAddress()}{setOwnAddress()}}
+{\footnotesize\ttfamily void set\+Own\+Address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+This function will set current node address. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{network_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}\label{network_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}} 
+\index{networkLayer.c@{networkLayer.c}!destinationAddress@{destinationAddress}}
+\index{destinationAddress@{destinationAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{destinationAddress}{destinationAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t destination\+Address = 0x0A}
+
+This variable will store destination device address. \mbox{\Hypertarget{network_layer_8c_a9243533871ae0a6842426255ca729241}\label{network_layer_8c_a9243533871ae0a6842426255ca729241}} 
+\index{networkLayer.c@{networkLayer.c}!ownAddress@{ownAddress}}
+\index{ownAddress@{ownAddress}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{ownAddress}{ownAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t own\+Address = 0x0D}
+
+This variable will store current device address. \mbox{\Hypertarget{network_layer_8c_a9df72626457da911e8703cb52109e9ba}\label{network_layer_8c_a9df72626457da911e8703cb52109e9ba}} 
+\index{networkLayer.c@{networkLayer.c}!performCrcValidation@{performCrcValidation}}
+\index{performCrcValidation@{performCrcValidation}!networkLayer.c@{networkLayer.c}}
+\doxysubsubsection{\texorpdfstring{performCrcValidation}{performCrcValidation}}
+{\footnotesize\ttfamily int perform\+Crc\+Validation = 0}
+
+This variable will used to identify that CRC validation will perform on received payload or not. 

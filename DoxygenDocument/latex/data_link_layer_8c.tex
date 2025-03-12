@@ -1,0 +1,189 @@
+\hypertarget{data_link_layer_8c}{}\doxysection{Source\+Code/\+Layer2/data\+Link\+Layer.c File Reference}
+\label{data_link_layer_8c}\index{SourceCode/Layer2/dataLinkLayer.c@{SourceCode/Layer2/dataLinkLayer.c}}
+
+
+This file contains implementation for Layer2 of RASPNet Protocol.  
+
+
+{\ttfamily \#include \char`\"{}data\+Link\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+CRC/\+CRC.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+UART/\+UART.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Layer3/network\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Layer1/physical\+Layer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_ac6cb48261b2055e553b6efbafed4197b}{reset\+All}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_abf3ba818427e238103997088987cc85b}{init\+Buffers}} (uint8\+\_\+t $\ast$\mbox{\hyperlink{main_8c_a18f141cb2726073503afb9f1d6c85efb}{payload}})
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_ab599b02f4c74b89201f431d237b7b809}{check\+Preamble\+Value}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_ac3564b3a43f25e4196de33d5a40354e2}{validate\+Received\+CRC}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_a0df4f167527b73e7e263dfb2128dd947}{forward\+Frame}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_a46f87c88fc64ce89336a696310967121}{send\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{data_link_layer_8c_ac876d43babba92d551e8d6d56cd0c023}{receive\+Buffer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_af879dc980b451f78decaa6885635a347}{is\+Received\+Frame\+To\+Forward}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_a9b7db21c2d72a4f2aa2343debb31e785}{send\+Bit\+Counter}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_a5b9abaedc4dbe730db1792cb26c3df82}{send\+Byte\+Counter}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_ac82845c49d21300ad35d541df49084a8}{total\+Bytes\+To\+Send}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_a822a62c888b2d3b44258e79afaf30215}{total\+Bytes\+To\+Received}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_ada12a41a41c2de5404d1f5bcc9d16da2}{receive\+Bit\+Counter}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_a74b6171ab9740795fcf42e66e1054945}{receive\+Byte\+Counter}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{data_link_layer_8c_a16f47c32e85dfe291ba0332bb2336173}{receive\+Preamble}} = 0
+\item 
+int \mbox{\hyperlink{data_link_layer_8c_ace7390be3cb8fc6eb7f4ff8b60c920f2}{is\+Preamble\+Received}} = 0
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{data_link_layer_8c_a58e105ffec0c38e48643e20fa3382009}{send\+Buffer\+Frame}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{data_link_layer_8c_a25d89afacd434b8b3be37fb6419a09a7}{received\+Buffer\+Frame}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains implementation for Layer2 of RASPNet Protocol. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{data_link_layer_8c_ab599b02f4c74b89201f431d237b7b809}\label{data_link_layer_8c_ab599b02f4c74b89201f431d237b7b809}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!checkPreambleValue@{checkPreambleValue}}
+\index{checkPreambleValue@{checkPreambleValue}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{checkPreambleValue()}{checkPreambleValue()}}
+{\footnotesize\ttfamily void check\+Preamble\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will validate that preamble value is received or not. \mbox{\Hypertarget{data_link_layer_8c_a0df4f167527b73e7e263dfb2128dd947}\label{data_link_layer_8c_a0df4f167527b73e7e263dfb2128dd947}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!forwardFrame@{forwardFrame}}
+\index{forwardFrame@{forwardFrame}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{forwardFrame()}{forwardFrame()}}
+{\footnotesize\ttfamily void forward\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will forward message frame in ring. \mbox{\Hypertarget{data_link_layer_8c_abf3ba818427e238103997088987cc85b}\label{data_link_layer_8c_abf3ba818427e238103997088987cc85b}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!initBuffers@{initBuffers}}
+\index{initBuffers@{initBuffers}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{initBuffers()}{initBuffers()}}
+{\footnotesize\ttfamily void init\+Buffers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})}
+
+This function will start the transmission of message frame. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & Character Array/\+String to transmit. \\
+\hline
+\end{DoxyParams}
+$<$ This function call is used for initializing message frame for transmitting.\mbox{\Hypertarget{data_link_layer_8c_ac876d43babba92d551e8d6d56cd0c023}\label{data_link_layer_8c_ac876d43babba92d551e8d6d56cd0c023}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!receiveBuffer@{receiveBuffer}}
+\index{receiveBuffer@{receiveBuffer}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{receiveBuffer()}{receiveBuffer()}}
+{\footnotesize\ttfamily void receive\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will receive message frame from ring. $<$ This function call is used to check if preamble value is received or not.
+
+$<$ This function call is used to check type of received message and to identify it will forward in ring or not.
+
+$<$ This function call will validate CRC which is received in message frame.
+
+$<$ This function call will forward message frame in ring.\mbox{\Hypertarget{data_link_layer_8c_ac6cb48261b2055e553b6efbafed4197b}\label{data_link_layer_8c_ac6cb48261b2055e553b6efbafed4197b}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!resetAll@{resetAll}}
+\index{resetAll@{resetAll}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{resetAll()}{resetAll()}}
+{\footnotesize\ttfamily void reset\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is used for resetting all variables of Layer 1, 2 and 3. \mbox{\Hypertarget{data_link_layer_8c_a46f87c88fc64ce89336a696310967121}\label{data_link_layer_8c_a46f87c88fc64ce89336a696310967121}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!sendBuffer@{sendBuffer}}
+\index{sendBuffer@{sendBuffer}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{sendBuffer()}{sendBuffer()}}
+{\footnotesize\ttfamily void send\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will transmit message frame in ring. $<$ This variable is used to point bit from current byte which is currently in transmission.\mbox{\Hypertarget{data_link_layer_8c_ac3564b3a43f25e4196de33d5a40354e2}\label{data_link_layer_8c_ac3564b3a43f25e4196de33d5a40354e2}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!validateReceivedCRC@{validateReceivedCRC}}
+\index{validateReceivedCRC@{validateReceivedCRC}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{validateReceivedCRC()}{validateReceivedCRC()}}
+{\footnotesize\ttfamily void validate\+Received\+CRC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function will validate CRC which is received in message frame. $<$ This variable is used for storing length of payload from received message.
+
+$<$ This variable is will store payload from received message.
+
+$<$ This function call is used to initializing uint\+\_\+8$\ast$ crc\+Buffer\+Payload from received payload.
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{data_link_layer_8c_ace7390be3cb8fc6eb7f4ff8b60c920f2}\label{data_link_layer_8c_ace7390be3cb8fc6eb7f4ff8b60c920f2}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!isPreambleReceived@{isPreambleReceived}}
+\index{isPreambleReceived@{isPreambleReceived}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{isPreambleReceived}{isPreambleReceived}}
+{\footnotesize\ttfamily int is\+Preamble\+Received = 0}
+
+This variable is used to store validation of received bytes with static preamble. \mbox{\Hypertarget{data_link_layer_8c_af879dc980b451f78decaa6885635a347}\label{data_link_layer_8c_af879dc980b451f78decaa6885635a347}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!isReceivedFrameToForward@{isReceivedFrameToForward}}
+\index{isReceivedFrameToForward@{isReceivedFrameToForward}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{isReceivedFrameToForward}{isReceivedFrameToForward}}
+{\footnotesize\ttfamily int is\+Received\+Frame\+To\+Forward = 0}
+
+This variable is used for identifying that received frame need to forward back to ring or not. \mbox{\Hypertarget{data_link_layer_8c_ada12a41a41c2de5404d1f5bcc9d16da2}\label{data_link_layer_8c_ada12a41a41c2de5404d1f5bcc9d16da2}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!receiveBitCounter@{receiveBitCounter}}
+\index{receiveBitCounter@{receiveBitCounter}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{receiveBitCounter}{receiveBitCounter}}
+{\footnotesize\ttfamily int receive\+Bit\+Counter = 0}
+
+This variable is used to keep track of number of bit in byte which is currently in receiving. \mbox{\Hypertarget{data_link_layer_8c_a74b6171ab9740795fcf42e66e1054945}\label{data_link_layer_8c_a74b6171ab9740795fcf42e66e1054945}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!receiveByteCounter@{receiveByteCounter}}
+\index{receiveByteCounter@{receiveByteCounter}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{receiveByteCounter}{receiveByteCounter}}
+{\footnotesize\ttfamily int receive\+Byte\+Counter = 0}
+
+This variable is used to keep track of number of byte which is receiving. \mbox{\Hypertarget{data_link_layer_8c_a25d89afacd434b8b3be37fb6419a09a7}\label{data_link_layer_8c_a25d89afacd434b8b3be37fb6419a09a7}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!receivedBufferFrame@{receivedBufferFrame}}
+\index{receivedBufferFrame@{receivedBufferFrame}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{receivedBufferFrame}{receivedBufferFrame}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ received\+Buffer\+Frame}
+
+This variable is used to store message frame which will be received from ring. \mbox{\Hypertarget{data_link_layer_8c_a16f47c32e85dfe291ba0332bb2336173}\label{data_link_layer_8c_a16f47c32e85dfe291ba0332bb2336173}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!receivePreamble@{receivePreamble}}
+\index{receivePreamble@{receivePreamble}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{receivePreamble}{receivePreamble}}
+{\footnotesize\ttfamily uint8\+\_\+t receive\+Preamble = 0}
+
+This variable is used to store received bytes to compare with static preamble. \mbox{\Hypertarget{data_link_layer_8c_a9b7db21c2d72a4f2aa2343debb31e785}\label{data_link_layer_8c_a9b7db21c2d72a4f2aa2343debb31e785}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!sendBitCounter@{sendBitCounter}}
+\index{sendBitCounter@{sendBitCounter}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{sendBitCounter}{sendBitCounter}}
+{\footnotesize\ttfamily int send\+Bit\+Counter = 0}
+
+This variable is used to keep track of number of bit in byte which was currently in transmissions. \mbox{\Hypertarget{data_link_layer_8c_a58e105ffec0c38e48643e20fa3382009}\label{data_link_layer_8c_a58e105ffec0c38e48643e20fa3382009}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!sendBufferFrame@{sendBufferFrame}}
+\index{sendBufferFrame@{sendBufferFrame}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{sendBufferFrame}{sendBufferFrame}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ send\+Buffer\+Frame}
+
+This variable is used to store message frame to transmit in ring. \mbox{\Hypertarget{data_link_layer_8c_a5b9abaedc4dbe730db1792cb26c3df82}\label{data_link_layer_8c_a5b9abaedc4dbe730db1792cb26c3df82}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!sendByteCounter@{sendByteCounter}}
+\index{sendByteCounter@{sendByteCounter}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{sendByteCounter}{sendByteCounter}}
+{\footnotesize\ttfamily int send\+Byte\+Counter = 0}
+
+This variable is used to keep track of number of byte which was transmitted. \mbox{\Hypertarget{data_link_layer_8c_a822a62c888b2d3b44258e79afaf30215}\label{data_link_layer_8c_a822a62c888b2d3b44258e79afaf30215}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!totalBytesToReceived@{totalBytesToReceived}}
+\index{totalBytesToReceived@{totalBytesToReceived}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{totalBytesToReceived}{totalBytesToReceived}}
+{\footnotesize\ttfamily int total\+Bytes\+To\+Received = 0}
+
+This variable is used to indicate size of message frame in byte to receive. \mbox{\Hypertarget{data_link_layer_8c_ac82845c49d21300ad35d541df49084a8}\label{data_link_layer_8c_ac82845c49d21300ad35d541df49084a8}} 
+\index{dataLinkLayer.c@{dataLinkLayer.c}!totalBytesToSend@{totalBytesToSend}}
+\index{totalBytesToSend@{totalBytesToSend}!dataLinkLayer.c@{dataLinkLayer.c}}
+\doxysubsubsection{\texorpdfstring{totalBytesToSend}{totalBytesToSend}}
+{\footnotesize\ttfamily int total\+Bytes\+To\+Send = 0}
+
+This variable is used to indicate size of message frame in byte to transmit. 
